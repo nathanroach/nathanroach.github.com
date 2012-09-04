@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Document Production and Review Tips using Adobe Acrobat Pro</title>
+    
+    <meta name="author" content="Name Lastname">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Jekyll Bootstrap</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Document Production and Review Tips using Adobe Acrobat Pro <small>Supporting tagline</small></h1>
+</div>
+
+<div class="row">
+  <div class="span8">
+    <p><strong>How to run multiple Acrobat OCR batches at once:</strong></p>
+<p><strong> </strong>I was about to dive into a document review project today and ran into some "technical challenges". Here's how it worked out.  Hopefully this will save others some time in the future.</p>
+<p><em>The Situation<br /><span style="font-style: normal;">Today's another one of those days ... my morning started out in a room stacked full of boxes of documents that were produced to us.  Now, I need to make sense out of these and find those proverbial needles in the haystack.  Fortunately, the tedious scanning process was already done for me, and I had PDF copies of the production on discs.</span></em></p>
+<p><em>The Goal<br /></em>The immediate goal is to go through the documents and look for key words and phrases, with a more in-depth review guided by a roadmap that is developed today. The quickest way to do this is to make the documents searchable. Often, you can get a scanning service provider (or your own scanner/copier) to perform OCR text recognition during the scanning process.  In this case, we received the documents as un-processed PDFs, so the recognition had to be done in-house.</p>
+<p><em>The Problem -- Speed<br /></em>Today's desktop computers often have plenty of horsepower.  This particular job was run on a dual-core <a href="http://www.amazon.com/gp/product/B002QQ8CC4?ie=UTF8&amp;tag=nathanroachco-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B002QQ8CC4">Mac Mini</a><img src="http://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=as2&amp;o=1&amp;a=B002QQ8CC4" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" /> desktop with 4GB of RAM.  However, <a href="http://www.amazon.com/gp/product/B0018QV3OC?ie=UTF8&amp;tag=nathanroachco-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B0018QV3OC">Adobe Acrobat</a><img src="http://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=as2&amp;o=1&amp;a=B0018QV3OC" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" /> is single-threaded for OCR.  What that means is, you can tell it to batch process multiple documents, but it goes through them sequentially, one at a time.  When you have thousands, or hundreds of thousands of documents, this poses a real problem.</p>
+<p>I started the batch as normal, by going to <a href="http://www.amazon.com/gp/product/B0018QY9WA?ie=UTF8&amp;tag=nathanroachco-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B0018QY9WA">Adobe Acrobat Pro</a><img src="http://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=as2&amp;o=1&amp;a=B0018QY9WA" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" />'s "Document" menu and selecting "Recognize text in multiple files using OCR ...".  I added the files from our Windows (SMB) file share and set it to work.  After a few hundred pages, it was clear that this approach wasn't going to be finished in any reasonable amount of time.  What I needed was <span style="text-decoration: underline;">concurrency</span>.  From my processor usage graph, I could tell that my computer had plenty of spare cycles, but that Acrobat just wasn't using them effectively.  </p>
+<p><em>The Solution</em><br />One approach that I've used in the past is simply to split up the job across several different computers. This is fine if you have enough computers, but it's still inefficient and ties up several machines in the office with each one running at less than peak speed. </p>
+<p><span style="text-decoration: underline;">Step 1:</span> More Acrobat!<br />This time, I took a different approach.  I made a copy of the Acrobat application in the Finder.  </p>
+<p><img src="/images/Screen_shot_2010-05-04_at_10.43.22_AM.png" alt="Document Production and Review Tips using Adobe Acrobat Pro" />Each copy will consume about 900mb of disk space, but on a modern system this isn't a problem.  Acrobat's license allows for multiple backup copies on a single computer, so up to this point you're OK on <a href="http://www.adobe.com/products/eulas/" title="Adobe End User License Agreement" target="_blank">licensing</a>.  I gave each one a slightly different icon so that I could tell them apart when active.<img src="/images/Screen_shot_2010-05-04_at_10.43.25_AM.png" alt="Document Production and Review Tips using Adobe Acrobat Pro" /></p>
+<p><span style="text-decoration: underline;">Step 2:</span> Queue up Jobs.<br />Now, you can launch each copy of Acrobat separately and add documents to each one's queue independently.  However, to do this right, you'll need a <a href="http://www.adobe.com/products/eulas/pdfs/Gen_WWCombined-20080205_1329.pdf" title="Acrobat License" target="_blank">license</a> for each concurrent copy of Acrobat.  I reviewed their <a href="http://www.adobe.com/products/eulas/pdfs/Gen_WWCombined-20080205_1329.pdf" title="Acrobat License" target="_blank">retail license</a> and it looks like they define "the Software" in such a way that it's licensed per copy, not per computer.  The backup copy provision probably doesn't cover concurrent usage. In my case, I had two retail copies of Acrobat as well as another copy that was bundled in my <a href="http://www.amazon.com/gp/redirect.html?ie=UTF8&amp;location=http%3A%2F%2Fwww.amazon.com%2Fs%3Fie%3DUTF8%26x%3D0%26ref_%3Dnb%5Fsb%5Fss%5Fc%5F1%5F20%26y%3D0%26field-keywords%3Dadobe%2520creative%2520suite%25205%26url%3Dsearch-alias%253Dsoftware%26sprefix%3Dadobe%2520creative%2520suite&amp;tag=nathanroachco-20&amp;linkCode=ur2&amp;camp=1789&amp;creative=390957">Adobe Creative Suite</a><img src="https://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=ur2&amp;o=1" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" /> package. If you have a site license or other agreement with Adobe, your licensing may be different. </p>
+<p><span style="text-decoration: underline;">Step 3:</span> Doubled Productivity (or more).<br />Most desktop computers these days are dual-core systems or better.  On the <a href="http://www.amazon.com/gp/product/B002QQ8CC4?ie=UTF8&amp;tag=nathanroachco-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B002QQ8CC4">Mac Mini</a><img src="http://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=as2&amp;o=1&amp;a=B002QQ8CC4" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" />, running two copies of Acrobat is the most efficient, with each one loading up a different processor core.  If you had a high-end machine with 8 cores, (and 8 copies of Acrobat) you could linearly scale up the workload. Another advantage to running multiple copies is that you can get work done in one copy while another copy runs the batch processing.  If you're on a Mac, you can also use the bult-in Preview.app program to read and review PDF files while your Acrobat is running OCR jobs.  Sadly, Preview.app doesn't do OCR on its own.<br /><img src="/images/Screen_shot_2010-05-04_at_10.42.45_AM.png" alt="Document Production and Review Tips using Adobe Acrobat Pro" /></p>
+<p><em>The Take-Away<br /></em>Running multiple Acrobat jobs on one computer beats tying up several different systems at once. However, licensing issues can be a pain if you want to run a large number of concurrent jobs.  For full-time production, I'd stick with a copy provider or hardware scanner that provides OCR.  You can also get standalone software like <a href="http://abbyyusa.com/" title="ABBYY" target="_blank">ABBYY</a> FineReader that specializes in OCR.  For small jobs, even <a href="http://googlesystem.blogspot.com/2009/09/google-docs-ocr.html" title="Google Docs OCR" target="_blank">Google Docs can now OCR</a> documents.  When it comes down to it, these kind of work-arounds shouldn't be necessary.  Acrobat is a "professional" product (it <a href="http://www.amazon.com/gp/product/B0018QY9WA?ie=UTF8&amp;tag=nathanroachco-20&amp;linkCode=as2&amp;camp=1789&amp;creative=390957&amp;creativeASIN=B0018QY9WA">says so on the box</a><img src="http://www.assoc-amazon.com/e/ir?t=nathanroachco-20&amp;l=as2&amp;o=1&amp;a=B0018QY9WA" border="0" height="1" alt="" style="border: none !important; margin: 0px !important;" width="1" /> !) It's inexcusable that Acrobat Pro doesn't run batch jobs like this in parallel.  At a minimum, it could parallelize page recognition, even if it attacked documents sequentially.  But, until Adobe does a bit more to modernize its Acrobat product line, a bit of creativity and an <a href="http://www.adobe.com/products/eulas/" title="Adobe Licensing" target="_blank">additional tithe</a> to Adobe can still get the job done quickly.</p>
+<p><em>A final caveat:</em> As part of this process, I discovered that Acrobat also has a propensity to crash when it tries to save batch-processed documents to a network SMB server.  So, be sure to save to the local disk then copy back to your file server when done.  Reading directly from the server doesn't seem to be an issue. Finally, I'm trying out Amazon's program, so some of the links in this post are affiliate links - <a href="http://cmp.ly/5">http://cmp.ly/5</a></p>
+<p> </p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/clean-up-your-writing-tips-for-lawyers-to-imp/index.html" title="Clean Up Your Writing - Tips for Lawyers to Improve Motions and Memos">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/is-the-ipad-a-threat-to-e-readers-like-amazon/index.html" title="Is The iPad A Threat To E-Readers Like Amazon's Kindle?">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'jekyllbootstrap'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span4">
+    <h4>Published</h4>
+    <div class="date"><span>04 May 2010</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#document imaging-ref">document imaging <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#document production-ref">document production <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#OCR-ref">OCR <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#PDF-ref">PDF <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#portable document format-ref">portable document format <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Name Lastname 2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
